@@ -3,11 +3,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class LogicVarExampleThread implements Runnable {
 
     //In order to be volatile and atomic
-    private static AtomicBoolean lock;
-
-    public LogicVarExampleThread(){
-        lock = new AtomicBoolean(false);
-    }
+    private static AtomicBoolean lock = new AtomicBoolean(false);
 
     @Override
     public void run(){
@@ -20,7 +16,7 @@ public class LogicVarExampleThread implements Runnable {
                 e.printStackTrace();
             }
             System.out.println(Thread.currentThread().getName() + " has reached critical section and attempts to enter.");
-            while(lock.get()){};
+            while(lock.get()){}
             lock.compareAndSet(false, true);
             System.out.println(Thread.currentThread().getName() + " entered critical section.");
             try {
