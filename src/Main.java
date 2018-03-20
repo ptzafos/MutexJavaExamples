@@ -3,7 +3,10 @@ public class Main {
 
     public static void main(String Args[]) {
 
-        int numberOfExample = 3;
+        int n = 5;
+        int numberOfExample = 4;
+        boolean choosing[] = new boolean[n];
+        int threadNum[] = new int[n];
 
         if (numberOfExample == 1) {
             //Logic Variable example
@@ -23,6 +26,23 @@ public class Main {
             Thread thread2 = new Thread(new PettersonExampleThread());
             thread1.start();
             thread2.start();
+        }
+        else if(numberOfExample == 4){
+            //Lamport example Thread
+            for (int i = 0; i < n; i++){
+                choosing[i] = false;
+                threadNum[i]=0;
+            }
+            Thread thread1 = new Thread(new LamportExampleThread(choosing, threadNum));
+            Thread thread2 = new Thread(new LamportExampleThread(choosing, threadNum));
+            Thread thread3 = new Thread(new LamportExampleThread(choosing, threadNum));
+            Thread thread4 = new Thread(new LamportExampleThread(choosing, threadNum));
+            Thread thread5 = new Thread(new LamportExampleThread(choosing, threadNum));
+            thread1.start();
+            thread2.start();
+            thread3.start();
+            thread4.start();
+            thread5.start();
         }
     }
 }
