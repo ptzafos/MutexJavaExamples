@@ -1,10 +1,11 @@
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 
 public class SwitchingExampleThread implements Runnable{
 
-    private static AtomicLong turn = new AtomicLong(0);
-    private static AtomicLong instanceCount = new AtomicLong(0);
-    private long instanceNum;
+    private static AtomicInteger turn = new AtomicInteger(0);
+    private static AtomicInteger instanceCount = new AtomicInteger(0);
+    private int instanceNum;
     public SwitchingExampleThread(){
        instanceNum = instanceCount.incrementAndGet();
        instanceNum--;
