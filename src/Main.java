@@ -18,7 +18,7 @@ public class Main {
             thread1.start();
             thread2.start();
         } else if (numberOfExample == 3) {
-            //Switch example Thread
+            //Petterson example Thread
             Thread thread1 = new Thread(new PettersonExampleThread());
             Thread thread2 = new Thread(new PettersonExampleThread());
             thread1.start();
