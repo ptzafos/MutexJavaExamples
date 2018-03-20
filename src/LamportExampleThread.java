@@ -23,7 +23,7 @@ public class LamportExampleThread implements Runnable{
         System.out.println(Thread.currentThread().getName() + " has been initialized.");
         while(true){
             choosing[instanceNum] = true;
-            System.out.println(Thread.currentThread().getName() + " is choosing number. " + threadNum[instanceNum]);
+            System.out.println(Thread.currentThread().getName() + " is choosing number.");
             synchronized (lock) {
                 IntStream.of(threadNum).max().ifPresent(maxInt -> threadNum[instanceNum] = maxInt + 1);
                 System.out.println(Thread.currentThread().getName() + " just chose num " + threadNum[instanceNum] + ".");
